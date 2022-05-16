@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">RecipesDemo</string>
+    <string name="no_data">No data.</string>
+    <string name="image">Image.</string>
+    <string name="search">Search.</string>
+    <string name="close">Close.</string>
+    <string name="_calories">CALORIES</string>
+    <string name="_servings">SERVINGS</string>
+    <string name="_calories_serving">CALORIES / SERVING</string>
+    <string name="_ingredients">INGREDIENTS</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="arrow">Arrow</string>
+    <string name="nutrition">Nutrition</string>
+</resources>
