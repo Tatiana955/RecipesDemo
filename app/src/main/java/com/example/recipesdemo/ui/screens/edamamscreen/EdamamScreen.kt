@@ -25,7 +25,7 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import com.example.recipesdemo.R
-import com.example.recipesdemo.data.models.responses.Hit
+import com.example.recipesdemo.data.models.remote.responses.Hit
 import com.example.recipesdemo.ui.components.HorizontalDivider
 import com.example.recipesdemo.ui.components.SpacerApp
 import com.example.recipesdemo.ui.screens.components.ImageInfo

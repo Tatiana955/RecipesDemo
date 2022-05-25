@@ -42,5 +42,12 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 14.sp,
         textAlign = TextAlign.Center
+    ),
+    caption = TextStyle(
+        color = Color.White,
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 12.sp,
+        textAlign = TextAlign.Center
     )
 )

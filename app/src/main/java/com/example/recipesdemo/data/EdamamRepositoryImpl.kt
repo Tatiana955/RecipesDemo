@@ -2,13 +2,20 @@ package com.example.recipesdemo.data
 
 import com.example.recipesdemo.BuildConfig
 import com.example.recipesdemo.util.Resource
-import com.example.recipesdemo.data.models.Edamam
-import com.example.recipesdemo.data.models.responses.Hit
-import com.example.recipesdemo.data.remote.EdamamApiService
+import com.example.recipesdemo.data.models.remote.responses.Edamam
+import com.example.recipesdemo.data.models.EdamamRepository
+import com.example.recipesdemo.data.models.local.*
+import com.example.recipesdemo.data.models.local.realms.RecipeRealm
+import com.example.recipesdemo.data.models.remote.responses.Hit
+import com.example.recipesdemo.data.models.remote.responses.Recipe
+import com.example.recipesdemo.data.models.remote.EdamamApiService
+import io.realm.RealmResults
+import io.realm.toRealmList
 import javax.inject.Inject
 
 class EdamamRepositoryImpl @Inject constructor(
-    private val api: EdamamApiService
+    private val api: EdamamApiService,
+    private val database: RecipeDatabaseOperations
     ): EdamamRepository {
 
     override suspend fun getRecipe(q: String): Resource<Edamam> {
@@ -36,5 +43,39 @@ class EdamamRepositoryImpl @Inject constructor(
         } else {
             Resource.Error("An unknown error has occurred.")
         }
+    }
+
+    override fun insertRecipe(recipe: Recipe) {
+        val recipeRealm = RecipeRealm().apply {
+            uri = recipe.uri
+            label = recipe.label
+            image = recipe.image
+            source = recipe.source
+            url = recipe.url
+            shareAs = recipe.shareAs
+            `yield` = recipe.yield
+            dietLabels = recipe.dietLabels.toRealmList()
+            healthLabels = recipe.healthLabels.toRealmList()
+            cautions = recipe.cautions.toRealmList()
+            ingredientLines = recipe.ingredientLines.toRealmList()
+            ingredients.apply { recipe.ingredients }
+            calories = recipe.calories
+            totalWeight = recipe.totalWeight
+            cuisineType = recipe.cuisineType.toRealmList()
+            mealType = recipe.mealType.toRealmList()
+            dishType = recipe.dishType.toRealmList()
+            totalNutrients.apply { recipe.totalNutrients }
+            totalDaily.apply { recipe.totalDaily }
+            digest.apply { recipe.digest }
+        }
+        database.insertRecipe(recipeRealm)
+    }
+
+    override fun deleteRecipe(recipe: Recipe) {
+        database.deleteRecipe(recipe)
+    }
+
+    override fun getRecipes(): RealmResults<RecipeRealm> {
+        return database.getRecipes()
     }
 }

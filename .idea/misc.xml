@@ -5,8 +5,13 @@
       <map>
         <entry key="..\:/Android/Application/RecipesDemo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.201" />
         <entry key="..\:/Android/Application/RecipesDemo/app/src/main/res/drawable/ic_background.xml" value="0.201" />
+        <entry key="..\:/Android/Application/RecipesDemo/app/src/main/res/drawable/ic_baseline_assignment_24.xml" value="0.173" />
+        <entry key="..\:/Android/Application/RecipesDemo/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.173" />
         <entry key="..\:/Android/Application/RecipesDemo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.201" />
+        <entry key="..\:/Android/Application/RecipesDemo/app/src/main/res/drawable/ic_recipe_background.xml" value="0.199" />
         <entry key="..\:/Android/Application/RecipesDemo/app/src/main/res/drawable/ic_recipe_foreground.xml" value="0.1" />
+        <entry key="..\:/Android/Application/RecipesDemo/app/src/main/res/drawable/ic_twotone_bookmark_24.xml" value="0.173" />
+        <entry key="..\:/Android/Application/RecipesDemo/app/src/main/res/drawable/ic_twotone_food_bank_24.xml" value="0.199" />
       </map>
     </option>
   </component>

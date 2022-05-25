@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'org.jetbrains.kotlin.plugin.serialization'
+    id 'io.realm.kotlin'
 }
 
 android {
@@ -88,4 +89,6 @@ dependencies {
     implementation "androidx.hilt:hilt-navigation-compose:$hilt_version"
 
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
+
+    implementation "io.realm.kotlin:library-base:$realm_version"
 }

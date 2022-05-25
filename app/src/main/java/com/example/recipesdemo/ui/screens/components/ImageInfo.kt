@@ -11,7 +11,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
 import com.example.recipesdemo.R
 
 @Composable
@@ -21,8 +21,8 @@ fun ImageInfo(
     size: Dp
 ) {
     Image(
-        rememberImagePainter(
-            data = image
+        rememberAsyncImagePainter(
+            model = image
         ),
         contentDescription = stringResource(R.string.image),
         contentScale = ContentScale.Crop,

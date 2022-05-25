@@ -1,8 +1,8 @@
-package com.example.recipesdemo.usecase
+package com.example.recipesdemo.usecase.remote
 
 import com.example.recipesdemo.util.Resource
-import com.example.recipesdemo.data.EdamamRepository
-import com.example.recipesdemo.data.models.Edamam
+import com.example.recipesdemo.data.models.EdamamRepository
+import com.example.recipesdemo.data.models.remote.responses.Edamam
 import com.example.recipesdemo.data.models.MissingDataException
 import javax.inject.Inject
 import kotlin.jvm.Throws

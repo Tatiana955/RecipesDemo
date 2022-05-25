@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">RecipesDemo</string>
+    <string name="food_bank">Food Bank</string>
     <string name="no_data">No data.</string>
     <string name="image">Image.</string>
     <string name="search">Search.</string>
     <string name="close">Close.</string>
+    <string name="save">Save.</string>
     <string name="_calories">CALORIES</string>
     <string name="_servings">SERVINGS</string>
     <string name="_calories_serving">CALORIES / SERVING</string>

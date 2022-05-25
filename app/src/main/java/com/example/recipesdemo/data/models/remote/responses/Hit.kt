@@ -1,4 +1,4 @@
-package com.example.recipesdemo.data.models.responses
+package com.example.recipesdemo.data.models.remote.responses
 
 data class Hit(
     val recipe: Recipe,

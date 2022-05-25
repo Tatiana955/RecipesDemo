@@ -3,6 +3,7 @@
     <dimen name="padding_0">0.dp</dimen>
     <dimen name="padding_2">2.dp</dimen>
     <dimen name="padding_4">4.dp</dimen>
+    <dimen name="padding_6">6.dp</dimen>
     <dimen name="padding_8">8.dp</dimen>
     <dimen name="padding_10">10.dp</dimen>
     <dimen name="padding_16">16.dp</dimen>
@@ -10,6 +11,7 @@
 
     <dimen name="thickness_2">2.dp</dimen>
 
+    <dimen name="image_size_84">84.dp</dimen>
     <dimen name="image_size_300">300.dp</dimen>
     <dimen name="image_size_400">400.dp</dimen>
 
@@ -17,9 +19,14 @@
 
     <dimen name="icon_paging_15">15.dp</dimen>
     <dimen name="icon_size_24">24.dp</dimen>
+    <dimen name="icon_size_26">26.dp</dimen>
 
     <dimen name="width_0">0.dp</dimen>
     <dimen name="width_2">2.dp</dimen>
+    <dimen name="width_6">6.dp</dimen>
     <dimen name="width_10">10.dp</dimen>
     <dimen name="width_20">20.dp</dimen>
+
+    <dimen name="height_4">4.dp</dimen>
+    <dimen name="height_100">100.dp</dimen>
 </resources>

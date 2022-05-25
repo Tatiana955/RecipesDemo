@@ -1,4 +1,4 @@
-package com.example.recipesdemo.data.models.responses
+package com.example.recipesdemo.data.models.remote.responses
 
 import kotlinx.serialization.Serializable
 

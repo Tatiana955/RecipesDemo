@@ -1,7 +1,7 @@
-package com.example.recipesdemo.data.remote
+package com.example.recipesdemo.data.models.remote
 
-import com.example.recipesdemo.data.models.Edamam
-import com.example.recipesdemo.data.models.responses.Hit
+import com.example.recipesdemo.data.models.remote.responses.Edamam
+import com.example.recipesdemo.data.models.remote.responses.Hit
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

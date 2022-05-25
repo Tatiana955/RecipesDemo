@@ -1,5 +1,6 @@
 package com.example.recipesdemo.ui.screens.infoscreen
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -11,18 +12,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.*
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.toSize
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.recipesdemo.R
-import com.example.recipesdemo.data.models.responses.*
+import com.example.recipesdemo.data.models.remote.responses.*
 import com.example.recipesdemo.ui.components.HorizontalDivider
 import com.example.recipesdemo.ui.screens.components.ImageInfo
 import com.example.recipesdemo.ui.screens.components.LabelInfo
+import com.example.recipesdemo.util.State
 import kotlin.math.roundToInt
 
 @Composable
@@ -46,6 +50,11 @@ fun InfoScreen(
             data = data
         )
     }
+    SaveButton(
+        modifier = modifier,
+        save = { viewModel.addRecipe() },
+        delete = { viewModel.deleteRecipe() }
+    )
 }
 
 @Composable
@@ -84,6 +93,50 @@ private fun Content(
             DigestList(
                 modifier = modifier,
                 recipe = it
+            )
+        }
+    }
+}
+
+@Composable
+private fun SaveButton(
+    modifier: Modifier,
+    save: () -> Unit,
+    delete: () -> Unit
+) {
+    var state by remember { mutableStateOf(State.IDLE) }
+    val colorAnimation: Color by animateColorAsState(
+        if (state == State.IDLE)
+            MaterialTheme.colors.onPrimary
+        else
+            MaterialTheme.colors.primary
+    )
+    Row(
+        modifier = modifier
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.End,
+        verticalAlignment = Alignment.Top
+    ) {
+        IconButton(
+            modifier = modifier
+                .requiredSize(dimensionResource(R.dimen.icon_size_26)),
+            onClick = {
+                state = when (state) {
+                    State.IDLE -> {
+                        save()
+                        State.PRESSED
+                    }
+                    State.PRESSED -> {
+                        delete()
+                        State.IDLE
+                    }
+                }
+            }
+        ) {
+            Icon(
+                imageVector = ImageVector.vectorResource(R.drawable.ic_twotone_bookmark_24),
+                contentDescription = stringResource(R.string.save),
+                tint = colorAnimation
             )
         }
     }

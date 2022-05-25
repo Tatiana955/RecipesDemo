@@ -1,5 +1,6 @@
 package com.example.recipesdemo.ui
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
@@ -9,8 +10,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.recipesdemo.ui.screens.edamamscreen.EdamamScreen
 import com.example.recipesdemo.ui.screens.infoscreen.InfoScreen
+import com.example.recipesdemo.ui.screens.savedrecipescreen.SavedRecipeScreen
 import com.example.recipesdemo.util.Screen
 
+@ExperimentalFoundationApi
 @Composable
 fun AppNavHost(
     navController: NavHostController
@@ -41,6 +44,9 @@ fun AppNavHost(
             InfoScreen(
                 id = id
             )
+        }
+        composable(Screen.SavedRecipeScreen.route) {
+            SavedRecipeScreen()
         }
     }
 }
