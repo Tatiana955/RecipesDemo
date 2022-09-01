@@ -4,6 +4,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -15,6 +17,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.recipesdemo.R
@@ -71,14 +74,24 @@ private fun Content(
 private fun Header(
     modifier: Modifier
 ) {
-    PainterImage(
-        modifier = modifier
-            .height(dimensionResource(R.dimen.height_100))
-            .fillMaxWidth()
-            .padding(dimensionResource(R.dimen.padding_10)),
-        id = R.drawable.ic_twotone_food_bank_24,
-        description = stringResource(R.string.food_bank)
+    val list = listOf(
+        R.drawable.picture_2,
+        R.drawable.picture_1,
+        R.drawable.picture_3,
+        R.drawable.picture_4,
+        R.drawable.picture_5
     )
+    LazyRow {
+        this.items(items = list, itemContent = { item ->
+            PainterImage(
+                modifier = modifier
+                    .height(dimensionResource(R.dimen.height_100))
+                    .padding(dimensionResource(R.dimen.padding_4)),
+                id = item,
+                description = stringResource(R.string.food_bank)
+            )
+        })
+    }
 }
 
 @Composable

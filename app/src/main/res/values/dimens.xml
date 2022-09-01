@@ -12,6 +12,7 @@
     <dimen name="thickness_2">2.dp</dimen>
 
     <dimen name="image_size_84">84.dp</dimen>
+    <dimen name="image_size_200">200.dp</dimen>
     <dimen name="image_size_300">300.dp</dimen>
     <dimen name="image_size_400">400.dp</dimen>
 

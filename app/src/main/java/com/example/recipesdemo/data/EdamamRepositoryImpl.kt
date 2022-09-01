@@ -47,8 +47,10 @@ class EdamamRepositoryImpl @Inject constructor(
 
     override fun insertRecipe(recipe: Recipe) {
         val recipeRealm = RecipeRealm().apply {
+            primaryKey = recipe.uri.drop(51)
             uri = recipe.uri
             label = recipe.label
+            labelForSearch = recipe.label.lowercase()
             image = recipe.image
             source = recipe.source
             url = recipe.url
@@ -77,5 +79,17 @@ class EdamamRepositoryImpl @Inject constructor(
 
     override fun getRecipes(): RealmResults<RecipeRealm> {
         return database.getRecipes()
+    }
+
+    override fun findRecipe(q: String): RealmResults<RecipeRealm> {
+        return database.findRecipe(q)
+    }
+
+    override fun getRecipeByPrimaryKey(primaryKey: String): RecipeRealm? {
+        return database.getRecipeByPrimaryKey(primaryKey)
+    }
+
+    override fun deleteSelectedRecipes(listPrimaryKey: List<String>) {
+        database.deleteSelectedRecipes(listPrimaryKey)
     }
 }

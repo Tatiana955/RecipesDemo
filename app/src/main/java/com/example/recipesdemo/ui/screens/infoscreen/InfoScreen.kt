@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.toSize
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.recipesdemo.R
 import com.example.recipesdemo.data.models.remote.responses.*
+import com.example.recipesdemo.ui.screens.components.CaloriesAndServings
 import com.example.recipesdemo.ui.components.HorizontalDivider
 import com.example.recipesdemo.ui.screens.components.ImageInfo
 import com.example.recipesdemo.ui.screens.components.LabelInfo
@@ -233,25 +234,6 @@ private fun Nutrition(
             )
         }
         HorizontalDivider(modifier = modifier)
-    }
-}
-
-@Composable
-private fun CaloriesAndServings(
-    count: Int,
-    text: String
-) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = "$count",
-            style = MaterialTheme.typography.h5
-        )
-        Text(
-            text = text,
-            style = MaterialTheme.typography.body1
-        )
     }
 }
 

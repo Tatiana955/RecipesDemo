@@ -7,8 +7,10 @@ import io.realm.realmListOf
 
 open class RecipeRealm: RealmObject {
     @PrimaryKey
+    var primaryKey: String? = ""
     var uri: String? = ""
     var label: String? = ""
+    var labelForSearch: String? = ""
     var image: String? = ""
     var source: String? = ""
     var url: String? = ""

@@ -17,7 +17,18 @@ class SavedRecipeViewModel @Inject constructor(
     private val _list = mutableStateOf<RealmResults<RecipeRealm>?>(null)
     val list: MutableState<RealmResults<RecipeRealm>?> = _list
 
+    var listPrKeys = mutableSetOf<String>()
+
     fun getRecipes() {
         list.value = edamamUseCases.getRecipes.invoke()
+    }
+
+    fun findRecipe(q: String) {
+        list.value = edamamUseCases.findRecipe(q)
+    }
+
+    fun deleteSelectedRecipes() {
+        edamamUseCases.deleteSelectedRecipes(listPrKeys.toList())
+        listPrKeys.clear()
     }
 }

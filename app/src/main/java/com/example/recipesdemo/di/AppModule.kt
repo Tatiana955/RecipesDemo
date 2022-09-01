@@ -1,8 +1,10 @@
 package com.example.recipesdemo.di
 
-import com.example.recipesdemo.data.models.EdamamRepository
 import com.example.recipesdemo.data.EdamamRepositoryImpl
+import com.example.recipesdemo.data.models.EdamamRepository
 import com.example.recipesdemo.data.models.local.*
+import com.example.recipesdemo.data.models.local.Migrations.MIGRATION
+import com.example.recipesdemo.data.models.local.Migrations.SCHEMA_VERSION
 import com.example.recipesdemo.data.models.remote.EdamamApiService
 import com.example.recipesdemo.util.Constants.BASE_URL
 import com.example.recipesdemo.util.Constants.REALM_SET
@@ -40,10 +42,10 @@ object AppModule {
     @Singleton
     @Provides
     fun providesRealm(): Realm {
-        val conf = RealmConfiguration
-            .with(
-                schema = REALM_SET
-            )
+        val conf = RealmConfiguration.Builder(schema = REALM_SET)
+            .schemaVersion(SCHEMA_VERSION)
+            .migration(MIGRATION)
+            .build()
         return Realm.open(conf)
     }
 

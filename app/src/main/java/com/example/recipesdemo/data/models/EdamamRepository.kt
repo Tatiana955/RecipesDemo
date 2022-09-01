@@ -18,4 +18,10 @@ interface EdamamRepository {
     fun deleteRecipe(recipe: Recipe)
 
     fun getRecipes(): RealmResults<RecipeRealm>
+
+    fun findRecipe(q: String): RealmResults<RecipeRealm>
+
+    fun getRecipeByPrimaryKey(primaryKey: String): RecipeRealm?
+
+    fun deleteSelectedRecipes(listPrimaryKey: List<String>)
 }

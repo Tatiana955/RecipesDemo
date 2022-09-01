@@ -9,5 +9,8 @@ data class EdamamUseCases @Inject constructor(
     val getRecipeById: GetRecipeById,
     val getRecipes: GetRecipes,
     val insertRecipe: InsertRecipe,
-    val deleteRecipe: DeleteRecipe
+    val deleteRecipe: DeleteRecipe,
+    val findRecipe: FindRecipe,
+    val getRecipeByPrimaryKey: GetRecipeByPrimaryKey,
+    val deleteSelectedRecipes: DeleteSelectedRecipes
 )

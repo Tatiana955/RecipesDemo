@@ -6,6 +6,7 @@
     <string name="search">Search.</string>
     <string name="close">Close.</string>
     <string name="save">Save.</string>
+    <string name="delete">Delete.</string>
     <string name="_calories">CALORIES</string>
     <string name="_servings">SERVINGS</string>
     <string name="_calories_serving">CALORIES / SERVING</string>
@@ -13,4 +14,6 @@
     <string name="ingredients">Ingredients</string>
     <string name="arrow">Arrow</string>
     <string name="nutrition">Nutrition</string>
+    <string name="see_info">See info</string>
+    <string name="instructions">Instructions</string>
 </resources>

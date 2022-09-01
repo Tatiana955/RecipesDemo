@@ -37,4 +37,26 @@ class RecipeDatabaseOperations @Inject constructor(
     fun getRecipes(): RealmResults<RecipeRealm> {
         return realm.query<RecipeRealm>().find()
     }
+
+    fun findRecipe(q: String): RealmResults<RecipeRealm> {
+        return realm.query<RecipeRealm>("labelForSearch == $0", q).find()
+    }
+
+    fun getRecipeByPrimaryKey(primaryKey: String): RecipeRealm? {
+        return realm.query<RecipeRealm>("primaryKey == $0", primaryKey).first().find()
+    }
+
+    fun deleteSelectedRecipes(listPrimaryKey: List<String>) {
+        realm.writeBlocking {
+            for (i in listPrimaryKey) {
+                val recipeRealm: RecipeRealm? =
+                    this.query<RecipeRealm>("primaryKey == $0", i)
+                        .first()
+                        .find()
+                if (recipeRealm != null) {
+                    this.delete(recipeRealm)
+                }
+            }
+        }
+    }
 }
